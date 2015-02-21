@@ -60,7 +60,11 @@ public class HockeyAppPlugin extends CordovaPlugin {
 	
 	protected void _checkForCrashes() {
 		Log.d(LOG_TAG, "HockeyApp Plugin checking for crashes");
-		String hockeyAppId="__HOCKEY_APP_KEY__"; // replaced by build script. better to pull from a a config file?
+		ApplicationInfo appliInfo = null;
+		try {
+			appliInfo = activity.getPackageManager().getApplicationInfo(activity.getPackageName(), PackageManager.GET_META_DATA);
+		} catch (NameNotFoundException e) {}
+		String hockeyAppId = appliInfo.metaData.getString("org.nypr.cordova.hockeyappplugin.HOCKEYAPP_API_KEY");
 		if(hockeyAppId!=null && !hockeyAppId.equals("") && !hockeyAppId.contains("HOCKEY_APP_KEY")){
 			CrashManager.register(cordova.getActivity(), hockeyAppId);
 		}
@@ -70,7 +74,11 @@ public class HockeyAppPlugin extends CordovaPlugin {
 		// Remove this for store builds!
 		//__HOCKEY_APP_UPDATE_ACTIVE_START__
 		Log.d(LOG_TAG, "HockeyApp Plugin checking for updates");
-		String hockeyAppId="__HOCKEY_APP_KEY__";
+		ApplicationInfo appliInfo = null;
+		try {
+			appliInfo = activity.getPackageManager().getApplicationInfo(activity.getPackageName(), PackageManager.GET_META_DATA);
+		} catch (NameNotFoundException e) {}
+		String hockeyAppId = appliInfo.metaData.getString("org.nypr.cordova.hockeyappplugin.HOCKEYAPP_API_KEY");
 		if(hockeyAppId!=null && !hockeyAppId.equals("") && !hockeyAppId.contains("HOCKEY_APP_KEY")){		
 			UpdateManager.register(cordova.getActivity(), hockeyAppId);
 		}
