@@ -16,6 +16,7 @@
 
     <!-- android -->
     <platform name="android">
+        <preference name="HOCKEYAPP_API_KEY" />
         <config-file target="res/xml/config.xml" parent="/*">
             <feature name="HockeyAppPlugin" >
                 <param name="android-package" value="org.nypr.cordova.hockeyappplugin.HockeyAppPlugin"/>
@@ -33,17 +34,28 @@
           <activity android:name="net.hockeyapp.android.UpdateActivity" />
         </config-file>
 
+        <config-file target="AndroidManifest.xml" parent="/manifest/application">
+            <meta-data
+                android:name="org.nypr.cordova.hockeyappplugin.HOCKEYAPP_API_KEY"
+                android:value="$HOCKEYAPP_API_KEY" />
+        </config-file>
+
         <source-file src="src/android/HockeyAppPlugin.java" target-dir="src/org/nypr/cordova/hockeyappplugin/" />
         <source-file src="src/android/HockeySDK-3.0.2.jar" target-dir="libs" />
     </platform>
 
     <!-- ios -->
     <platform name="ios">
+        <preference name="HOCKEYAPP_API_KEY" />
         <config-file target="config.xml" parent="/*">
             <feature name="HockeyAppPlugin">
                 <param name="ios-package" value="HockeyAppPlugin" />
                 <param name="onload" value="true" />
             </feature>
+        </config-file>
+
+        <config-file target="*-Info.plist" parent="HockeyApp API Key">
+            <string>$HOCKEYAPP_API_KEY</string>
         </config-file>
 
         <dependency id="org.nypr.cordova.nslogger-cocoalumberjack-connector-plugin" url="https://github.com/wnyc/cordova-plugin-nslogger-cocoalumberjack-connector.git"  />
