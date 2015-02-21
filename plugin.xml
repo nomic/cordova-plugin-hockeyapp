@@ -3,12 +3,16 @@
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
     xmlns:android="http://schemas.android.com/apk/res/android"
     id="net.michaelgooden.cordova.hockeyappplugin"
-    version="0.1.2">
+    version="0.1.3">
     <name>Device</name>
     <description>HockeyApp Plugin</description>
     <license>Apache 2.0</license>
     <keywords>hockeyapp,crash reporting,update</keywords>
     <repo>https://github.com/MichaelGooden/cordova-plugin-hockeyapp/tree/feature/parameters</repo>
+
+    <engines>
+        <engine name="cordova" version=">=3.5.0" />
+    </engines>
 
     <js-module src="www/hockeyapp.js" name="HockeyApp">
       <clobbers target="hockeyapp"/>
