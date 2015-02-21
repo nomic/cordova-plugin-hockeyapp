@@ -20,7 +20,7 @@ extern int ddLogLevel;
 #pragma mark Initialization
 
 - (void)pluginInitialize {
-    NSString * hockeyAppKey = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"HockeyApp API Key"];
+    NSString * hockeyAppKey = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"HockeyApp App ID"];
     if( hockeyAppKey!=nil && [hockeyAppKey isEqualToString:@""]==NO && [hockeyAppKey rangeOfString:@"HOCKEY_APP_KEY"].location == NSNotFound ){
 
         // initialize before HockeySDK, so the delegate can access the file logger

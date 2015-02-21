@@ -64,7 +64,7 @@ public class HockeyAppPlugin extends CordovaPlugin {
 		try {
 			appliInfo = activity.getPackageManager().getApplicationInfo(activity.getPackageName(), PackageManager.GET_META_DATA);
 		} catch (NameNotFoundException e) {}
-		String hockeyAppId = appliInfo.metaData.getString("org.nypr.cordova.hockeyappplugin.HOCKEYAPP_API_KEY");
+		String hockeyAppId = appliInfo.metaData.getString("org.nypr.cordova.hockeyappplugin.HOCKEYAPP_APP_ID");
 		if(hockeyAppId!=null && !hockeyAppId.equals("") && !hockeyAppId.contains("HOCKEY_APP_KEY")){
 			CrashManager.register(cordova.getActivity(), hockeyAppId);
 		}
@@ -78,7 +78,7 @@ public class HockeyAppPlugin extends CordovaPlugin {
 		try {
 			appliInfo = activity.getPackageManager().getApplicationInfo(activity.getPackageName(), PackageManager.GET_META_DATA);
 		} catch (NameNotFoundException e) {}
-		String hockeyAppId = appliInfo.metaData.getString("org.nypr.cordova.hockeyappplugin.HOCKEYAPP_API_KEY");
+		String hockeyAppId = appliInfo.metaData.getString("org.nypr.cordova.hockeyappplugin.HOCKEYAPP_APP_ID");
 		if(hockeyAppId!=null && !hockeyAppId.equals("") && !hockeyAppId.contains("HOCKEY_APP_KEY")){		
 			UpdateManager.register(cordova.getActivity(), hockeyAppId);
 		}

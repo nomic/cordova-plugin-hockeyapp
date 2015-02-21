@@ -3,7 +3,7 @@
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
     xmlns:android="http://schemas.android.com/apk/res/android"
     id="net.michaelgooden.cordova.hockeyappplugin"
-    version="0.1.1">
+    version="0.1.2">
     <name>Device</name>
     <description>HockeyApp Plugin</description>
     <license>Apache 2.0</license>
@@ -16,7 +16,7 @@
 
     <!-- android -->
     <platform name="android">
-        <preference name="HOCKEYAPP_API_KEY" />
+        <preference name="HOCKEYAPP_APP_ID_FOR_ANDROID" />
         <config-file target="res/xml/config.xml" parent="/*">
             <feature name="HockeyAppPlugin" >
                 <param name="android-package" value="org.nypr.cordova.hockeyappplugin.HockeyAppPlugin"/>
@@ -36,8 +36,8 @@
 
         <config-file target="AndroidManifest.xml" parent="/manifest/application">
             <meta-data
-                android:name="org.nypr.cordova.hockeyappplugin.HOCKEYAPP_API_KEY"
-                android:value="$HOCKEYAPP_API_KEY" />
+                android:name="org.nypr.cordova.hockeyappplugin.HOCKEYAPP_APP_ID"
+                android:value="$HOCKEYAPP_APP_ID_FOR_ANDROID" />
         </config-file>
 
         <source-file src="src/android/HockeyAppPlugin.java" target-dir="src/org/nypr/cordova/hockeyappplugin/" />
@@ -46,7 +46,7 @@
 
     <!-- ios -->
     <platform name="ios">
-        <preference name="HOCKEYAPP_API_KEY" />
+        <preference name="HOCKEYAPP_APP_ID_FOR_IOS" />
         <config-file target="config.xml" parent="/*">
             <feature name="HockeyAppPlugin">
                 <param name="ios-package" value="HockeyAppPlugin" />
@@ -54,8 +54,8 @@
             </feature>
         </config-file>
 
-        <config-file target="*-Info.plist" parent="HockeyApp API Key">
-            <string>$HOCKEYAPP_API_KEY</string>
+        <config-file target="*-Info.plist" parent="HockeyApp App ID">
+            <string>$HOCKEYAPP_APP_ID_FOR_IOS</string>
         </config-file>
 
         <dependency id="org.nypr.cordova.nslogger-cocoalumberjack-connector-plugin" url="https://github.com/wnyc/cordova-plugin-nslogger-cocoalumberjack-connector.git"  />
