@@ -12,16 +12,20 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.lang.RuntimeException;
 
+import android.app.Activity;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
+import android.content.pm.PackageManager.NameNotFoundException;
 import android.util.Log;
 
 public class HockeyAppPlugin extends CordovaPlugin {
 	protected static final String LOG_TAG = "HockeyAppPlugin";
+    private Activity activity;
 	
 	@Override
 	public void initialize(CordovaInterface cordova, CordovaWebView webView) {
 		super.initialize(cordova, webView);
+        activity = cordova.getActivity();
 	  _checkForCrashes();
 	  _checkForUpdates();
 		Log.d(LOG_TAG, "HockeyApp Plugin initialized");
@@ -81,7 +85,7 @@ public class HockeyAppPlugin extends CordovaPlugin {
 			appliInfo = activity.getPackageManager().getApplicationInfo(activity.getPackageName(), PackageManager.GET_META_DATA);
 		} catch (NameNotFoundException e) {}
 		String hockeyAppId = appliInfo.metaData.getString("org.nypr.cordova.hockeyappplugin.HOCKEYAPP_APP_ID");
-		if(hockeyAppId!=null && !hockeyAppId.equals("") && !hockeyAppId.contains("HOCKEY_APP_KEY")){		
+		if(hockeyAppId!=null && !hockeyAppId.equals("") && !hockeyAppId.contains("HOCKEY_APP_KEY")){
 			UpdateManager.register(cordova.getActivity(), hockeyAppId);
 		}
 		//__HOCKEY_APP_UPDATE_ACTIVE_END__
