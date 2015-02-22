@@ -37,13 +37,13 @@ public class HockeyAppPlugin extends CordovaPlugin {
 		Log.d(LOG_TAG, "HockeyApp Plugin resuming");
 	  _checkForUpdates();
 		super.onResume(multitasking);
-        Tracking.startUsage(this);
+        Tracking.startUsage(activity);
 	}
 
     @Override
-    protected void onPause() {
-      Tracking.stopUsage(this);
-      super.onPause();
+    protected void onPause(boolean multitasking) {
+      Tracking.stopUsage(activity);
+      super.onPause(multitasking);
     }
 
   @Override
