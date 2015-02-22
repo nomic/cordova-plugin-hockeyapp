@@ -41,7 +41,7 @@ public class HockeyAppPlugin extends CordovaPlugin {
 	}
 
     @Override
-    protected void onPause(boolean multitasking) {
+    public void onPause(boolean multitasking) {
       Tracking.stopUsage(activity);
       super.onPause(multitasking);
     }
