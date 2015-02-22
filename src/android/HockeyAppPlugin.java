@@ -1,6 +1,7 @@
 package org.nypr.cordova.hockeyappplugin;
 
 import net.hockeyapp.android.CrashManager;
+import net.hockeyapp.android.Tracking;
 import net.hockeyapp.android.UpdateManager;
 
 import org.apache.cordova.CordovaWebView;
@@ -36,7 +37,14 @@ public class HockeyAppPlugin extends CordovaPlugin {
 		Log.d(LOG_TAG, "HockeyApp Plugin resuming");
 	  _checkForUpdates();
 		super.onResume(multitasking);
+        Tracking.startUsage(this);
 	}
+
+    @Override
+    protected void onPause() {
+      Tracking.stopUsage(this);
+      super.onPause();
+    }
 
   @Override
   public boolean execute(String action, JSONArray args, CallbackContext callbackContext) {
