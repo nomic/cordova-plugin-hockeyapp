@@ -18,7 +18,7 @@ TODO - update plugin to latest SDK versions
 
 #### Phonegap Build
 
-        <gap:plugin name="net.michaelgooden.cordova.hockeyappplugin" source="plugins.cordova.io" version="~0.1.6">
+        <gap:plugin name="net.michaelgooden.cordova.hockeyappplugin" source="plugins.cordova.io" version="~0.1.7">
           <param name="HOCKEYAPP_APP_ID_FOR_ANDROID" value="HOCKEY_APP_KEY" />
           <param name="HOCKEYAPP_APP_ID_FOR_IOS" value="HOCKEY_APP_KEY" />
         </gap:plugin>
