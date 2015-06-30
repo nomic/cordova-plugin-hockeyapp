@@ -12,7 +12,7 @@ SDK documentation and integration guides for IOS and Android:
 http://support.hockeyapp.net/kb/client-integration-ios-mac-os-x/hockeyapp-for-ios  
 http://support.hockeyapp.net/kb/client-integration-android-other-platforms/hockeyapp-for-android-sdk  
 
-TODO - update plugin to latest SDK versions 
+TODO - update iOS plugin to latest SDK version
 
 ## Installation
 
